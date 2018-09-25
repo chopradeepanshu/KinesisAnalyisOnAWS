@@ -7,18 +7,18 @@ import boto3
 import logging
 import time
  
-auth = OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_secret)
+auth = OAuthHandler('ZWdr216m2VVgJZxDBmncaeOIV', 'mqSNZFXjXV9cXTNcRhAdTQgIsfnmM0dbQpIFeNmYLzw5QX8RJM')
+auth.set_access_token('147905014-5PZyY3fIQSsl6lxqHBGEjptaiixwNkKjLfSLaQqn', 'Elunoc08U824xekcIy3MsOMuudhSmvtU3NhU8BG0CXqMK')
  
 api = tweepy.API(auth)
-queryHashtag = 'DonaldTrump'
+queryHashtag = 'NarendraModi'
 
 def process_or_store(tweet):
     #print(json.dumps(tweet))
     #f = codecs.open('tweetDump.json', 'a','utf-8') #writing to local file.
     try:
         response = firehose_client.put_record(
-            DeliveryStreamName='bhargav-twitter-data-stream',
+            DeliveryStreamName='DeepsInputDataStream',
             Record={
                 'Data': json.dumps(tweet, ensure_ascii=False, encoding="utf-8")+'\n'
             }
